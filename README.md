@@ -86,20 +86,6 @@ Defaults to `auto`. Changes native browser `fetchpriority` attribute
 `important: boolean | false`
 Defaults to `false`. Sets `sync, eager, prioritize` to `true`
 
-## Preloading
-It is recommended to preload images from the api. You can do this in with `hooks.server.ts`
-```
-import type { Handle } from '@sveltejs/kit';
-
-export const handle = (async ({ event, resolve }) => {
-	const response = await resolve(event, {
-		preload: ({ path }) => path.includes('/api/_image')
-	});
-
-	return response;
-}) satisfies Handle;
-```
-
 ## Configuration
 
 Server configrations can be specified via option params. **All parameters are optional!**
