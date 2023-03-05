@@ -1,5 +1,5 @@
 import { SvelteComponentTyped } from "svelte";
-import type { Loader } from '../../../../../../../../src/lib/@types/Loader.js';
+import type { Loader } from '../@types/Loader.js';
 declare const __propDef: {
     props: {
         src: string;

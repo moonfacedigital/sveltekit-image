@@ -1,6 +1,6 @@
 import fs from 'fs';
 import path from 'path';
-import { getExtension } from '../../../../../../../../../src/lib/api/functions/getExtension.js';
+import { getExtension } from './getExtension.js';
 export const writeImageToFileSystem = async (cacheKey, contentType, maxAge, etag, buffer, cacheDirectory) => {
     // get file extension by content type
     let extension = getExtension(contentType);
