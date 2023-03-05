@@ -1,6 +1,6 @@
 import fs from 'fs';
 import path from 'path';
-import { detectContentType } from './detectContentType.js';
+import { detectContentType } from '../../../../../../../../../src/lib/api/functions/detectContentType.js';
 export const readImageFileSystem = async (cacheKey, cacheDirectory) => {
     const now = Date.now();
     try {

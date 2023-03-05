@@ -13,6 +13,10 @@ export let preload = false;
 export let quality = 73;
 let klass = undefined;
 export { klass as class };
+// Progressive Enhancement. Fix sveltekit prerender without JS
+if (!src.startsWith('https://' || 'http://')) {
+    src = $page.url.protocol + '//' + $page.url.host + '/' + src;
+}
 export let loader = (src, width, quality) => `/api/_image?${new URLSearchParams({
     url: src,
     w: width.toString(),

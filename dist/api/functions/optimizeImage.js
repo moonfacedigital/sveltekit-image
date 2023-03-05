@@ -1,5 +1,5 @@
 import sharp from 'sharp';
-import { AVIF, JPEG, PNG, WEBP } from '../constants/mimeTypes.js';
+import { AVIF, JPEG, PNG, WEBP } from '../../../../../../../../../src/lib/api/constants/mimeTypes.js';
 export const optimizeImage = async (buffer, contentType, quality, width, height) => {
     try {
         // Begin sharp transformation logic

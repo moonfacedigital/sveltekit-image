@@ -1,4 +1,4 @@
-import { AVIF, GIF, JPEG, PNG, SVG, WEBP, } from '../constants/mimeTypes.js';
+import { AVIF, GIF, JPEG, PNG, SVG, WEBP, } from '../../../../../../../../../src/lib/api/constants/mimeTypes.js';
 export const detectContentType = (buffer) => {
     if ([0xff, 0xd8, 0xff].every((b, i) => buffer[i] === b)) {
         return JPEG;
