@@ -25,8 +25,8 @@ const config = {
         : autoAdapter(),
     alias: {
       // this will match a file
-      $app: './$app/',
-      $lib: './src/lib/',
+      $app: '/$app/',
+      $lib: '/src/lib/',
     },
   },
 }
