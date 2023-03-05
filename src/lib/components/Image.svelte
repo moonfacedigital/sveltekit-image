@@ -1,8 +1,8 @@
 <script lang="ts">
   import type { Loader } from '$lib/@types/Loader.js'
-  import { page } from /* @vite-ignore */'$app/stores'
-  import { browser } from /* @vite-ignore */'$app/environment'
-  import { onDestroy } from 'svelte';
+  import { page } from /* @vite-ignore */ '$app/stores'
+  import { browser } from /* @vite-ignore */ '$app/environment'
+  import { onDestroy } from 'svelte'
 
   export let src: string
   export let width: number | undefined = undefined
@@ -23,6 +23,9 @@
       w: width.toString(),
       q: quality.toString(),
     }).toString()}`
+
+  // Progressive Enhancement. Fix sveltekit prerender without JS
+  export const local: string = $page.url.protocol + '//' + $page.url.host
 
   // all possible sizes from devices width to regular placeholders
   const allSizes = [
@@ -57,24 +60,24 @@
       src.startsWith(protocol)
     ) && !src.startsWith($page.url.origin)
 
-    var preconnectLink: HTMLinkElement | undefined
-    var dnsLink: HTMLinkElement | undefined
-    var preloadLink: HTMLinkElement | undefined
+  var preconnectLink: HTMLinkElement | undefined
+  var dnsLink: HTMLinkElement | undefined
+  var preloadLink: HTMLinkElement | undefined
 
   // Archive meta optimizations
 
   // if (browser) {
   //   console.log("Page origin", $page.url.origin)
 
-	// 	const isExternalUrl =
-	// 		['http://', 'https://', 'ftp://'].some((protocol) => src.startsWith(protocol)) &&
-	// 		!src.startsWith($page.url.origin);
+  // 	const isExternalUrl =
+  // 		['http://', 'https://', 'ftp://'].some((protocol) => src.startsWith(protocol)) &&
+  // 		!src.startsWith($page.url.origin);
 
-	// 	const hasExistingPreconnect = document.querySelector(
-	// 		`link[href='${new URL(src).origin}'][rel="preconnect"]`
-	// 	);
+  // 	const hasExistingPreconnect = document.querySelector(
+  // 		`link[href='${new URL(src).origin}'][rel="preconnect"]`
+  // 	);
 
-	// 	const hasExistingPreload = document.querySelector(`link[href='${src}'][rel="preload"]`);
+  // 	const hasExistingPreload = document.querySelector(`link[href='${src}'][rel="preload"]`);
 
   //   preloadLink = document.createElement('link')
   //     preloadLink.href = src
@@ -87,19 +90,19 @@
   //     dnsLink.rel = 'dns-prefetch'
   //     document.head.appendChild(dnsLink)
 
-	// 	 preconnectLink = document.createElement('link');
-	// 	preconnectLink.href =  new URL(src).origin
-	// 	preconnectLink.rel = 'preconnect';
-	// 	preconnectLink.crossOrigin = '';
+  // 	 preconnectLink = document.createElement('link');
+  // 	preconnectLink.href =  new URL(src).origin
+  // 	preconnectLink.rel = 'preconnect';
+  // 	preconnectLink.crossOrigin = '';
 
   //   if (important || preload) {
   //     document.head.appendChild(preloadLink)
   //   }
 
-	// 	if (isExternalUrl) {
+  // 	if (isExternalUrl) {
   //     document.head.appendChild(dnsLink)
-	// 		document.head.appendChild(preconnectLink);
-	// 	}
+  // 		document.head.appendChild(preconnectLink);
+  // 	}
   // }
 </script>
 
