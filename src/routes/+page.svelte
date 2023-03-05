@@ -1,5 +1,5 @@
 <script lang="ts">
-  import Image from 'sveltekit-image'
+  import Image from '$lib/index.js'
   const image = 'tom-scott.jpg'
 </script>
 
@@ -20,7 +20,7 @@
 
   <h2 class="text-2xl font-bold pb-4">Demo</h2>
   <Image
-    src="https://demo.rayriffy.com/{image}"
+    src="favicon.png"
     width={801}
     height={801}
     alt="Tom Scott"
