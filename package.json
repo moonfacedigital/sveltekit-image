@@ -1,6 +1,6 @@
 {
   "name": "sveltekit-image",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "author": {
     "name": "Moonface Digital",
     "email": "dev@moonface.digital",
@@ -53,11 +53,7 @@
     "svelte-adapter-bun": "^0.4.3",
     "svelte-check": "^3.0.4",
     "svelte-preprocess": "^5.0.1",
-<<<<<<< HEAD
     "sveltekit-image": "^0.4.0",
-=======
-    "sveltekit-image": "github:moonfacedigital/sveltekit-image#fix/PE",
->>>>>>> 4e8ec91c3d3695197400b191be63f1da3a03ea60
     "tslib": "^2.5.0",
     "typescript": "^4.9.5",
     "vite": "^4.1.4"
