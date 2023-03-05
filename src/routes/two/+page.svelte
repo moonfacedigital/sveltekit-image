@@ -1,5 +1,5 @@
 <script>
-  import Image from '../../lib/components/Image.svelte'
+  import Image from 'sveltekit-image'
   const image = 'tom-scott.jpg'
 </script>
 
