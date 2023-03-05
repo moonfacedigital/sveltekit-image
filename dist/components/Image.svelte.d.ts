@@ -11,8 +11,8 @@ declare const __propDef: {
         prioritize?: boolean | undefined;
         important?: boolean | undefined;
         preload?: boolean | undefined;
-        class?: string | undefined;
         quality?: number | undefined;
+        class?: string | undefined;
         loader?: Loader | undefined;
     };
     events: {

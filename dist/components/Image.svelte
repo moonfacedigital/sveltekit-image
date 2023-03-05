@@ -10,9 +10,9 @@ export let eager = undefined;
 export let prioritize = false;
 export let important = false;
 export let preload = false;
+export let quality = 73;
 let klass = undefined;
 export { klass as class };
-export let quality = 73;
 export let loader = (src, width, quality) => `/api/_image?${new URLSearchParams({
     url: src,
     w: width.toString(),
@@ -45,33 +45,37 @@ const isExternalUrl = () => ['http://', 'https://', 'ftp://'].some(protocol => s
 var preconnectLink;
 var dnsLink;
 var preloadLink;
-if (browser) {
-    console.log("Page origin", $page.url.origin);
-    const isExternalUrl = ['http://', 'https://', 'ftp://'].some((protocol) => src.startsWith(protocol)) &&
-        !src.startsWith($page.url.origin);
-    const hasExistingPreconnect = document.querySelector(`link[href='${new URL(src).origin}'][rel="preconnect"]`);
-    const hasExistingPreload = document.querySelector(`link[href='${src}'][rel="preload"]`);
-    preloadLink = document.createElement('link');
-    preloadLink.href = src;
-    preloadLink.rel = 'preload';
-    preloadLink.as = 'image';
-    document.head.appendChild(preloadLink);
-    dnsLink = document.createElement('link');
-    dnsLink.href = new URL(src).origin;
-    dnsLink.rel = 'dns-prefetch';
-    document.head.appendChild(dnsLink);
-    preconnectLink = document.createElement('link');
-    preconnectLink.href = new URL(src).origin;
-    preconnectLink.rel = 'preconnect';
-    preconnectLink.crossOrigin = '';
-    if (important || preload) {
-        document.head.appendChild(preloadLink);
-    }
-    if (isExternalUrl) {
-        document.head.appendChild(dnsLink);
-        document.head.appendChild(preconnectLink);
-    }
-}
+// Archive meta optimizations
+// if (browser) {
+//   console.log("Page origin", $page.url.origin)
+// 	const isExternalUrl =
+// 		['http://', 'https://', 'ftp://'].some((protocol) => src.startsWith(protocol)) &&
+// 		!src.startsWith($page.url.origin);
+// 	const hasExistingPreconnect = document.querySelector(
+// 		`link[href='${new URL(src).origin}'][rel="preconnect"]`
+// 	);
+// 	const hasExistingPreload = document.querySelector(`link[href='${src}'][rel="preload"]`);
+//   preloadLink = document.createElement('link')
+//     preloadLink.href = src
+//     preloadLink.rel = 'preload'
+//     preloadLink.as = 'image'
+//     document.head.appendChild(preloadLink)
+//      dnsLink = document.createElement('link')
+//     dnsLink.href = new URL(src).origin
+//     dnsLink.rel = 'dns-prefetch'
+//     document.head.appendChild(dnsLink)
+// 	 preconnectLink = document.createElement('link');
+// 	preconnectLink.href =  new URL(src).origin
+// 	preconnectLink.rel = 'preconnect';
+// 	preconnectLink.crossOrigin = '';
+//   if (important || preload) {
+//     document.head.appendChild(preloadLink)
+//   }
+// 	if (isExternalUrl) {
+//     document.head.appendChild(dnsLink)
+// 		document.head.appendChild(preconnectLink);
+// 	}
+// }
 </script>
 
 <!-- svelte-ignore a11y-missing-attribute -->
