@@ -17,11 +17,7 @@ specifiers:
   svelte-adapter-bun: ^0.4.3
   svelte-check: ^3.0.4
   svelte-preprocess: ^5.0.1
-<<<<<<< HEAD
-  sveltekit-image: ^0.4.0
-=======
-  sveltekit-image: github:moonfacedigital/sveltekit-image#fix/PE
->>>>>>> 4e8ec91c3d3695197400b191be63f1da3a03ea60
+  sveltekit-image: ^0.4.2
   tslib: ^2.5.0
   typescript: ^4.9.5
   vite: ^4.1.4
@@ -43,11 +39,7 @@ dependencies:
   svelte-adapter-bun: 0.4.3
   svelte-check: 3.0.4_svelte@3.55.1
   svelte-preprocess: 5.0.1_4x7phaipmicbaooxtnresslofa
-<<<<<<< HEAD
-  sveltekit-image: 0.4.0
-=======
-  sveltekit-image: github.com/moonfacedigital/sveltekit-image/b89908e3316361b39a530877c4093ed985ff26ab
->>>>>>> 4e8ec91c3d3695197400b191be63f1da3a03ea60
+  sveltekit-image: 0.4.2
   tslib: 2.5.0
   typescript: 4.9.5
   vite: 4.1.4
@@ -1447,8 +1439,8 @@ packages:
       typescript: 4.9.5
     dev: false
 
-  /sveltekit-image/0.3.64:
-    resolution: {integrity: sha512-eiOLYTcrEnCMXl0Z0iEsi8uYrk1D8TxL8x0OGRWyn6DqZoOcVfrvcBP58i1mpSQLKyqei/REOoPbDJsnp/Jhdw==}
+  /sveltekit-image/0.4.2:
+    resolution: {integrity: sha512-AjH2Ewa9grmuV5kW0JU/b6Njzr4hHgzJw09MzccVhbc9F59R3AO69zVkq6U6IOrmhMi4QEdFKHqL0OVaSQRLQw==}
     dependencies:
       '@hapi/accept': 6.0.1
       '@sveltejs/adapter-auto': 2.0.0_@sveltejs+kit@1.10.0
@@ -1466,44 +1458,6 @@ packages:
       svelte-adapter-bun: 0.4.3
       svelte-check: 3.0.4_svelte@3.55.1
       svelte-preprocess: 5.0.1_4x7phaipmicbaooxtnresslofa
-      tslib: 2.5.0
-      typescript: 4.9.5
-      vite: 4.1.4
-    transitivePeerDependencies:
-      - '@babel/core'
-      - '@types/node'
-      - coffeescript
-      - less
-      - postcss
-      - postcss-load-config
-      - pug
-      - sass
-      - stylus
-      - sugarss
-      - supports-color
-      - terser
-    dev: false
-
-  /sveltekit-image/0.4.0:
-    resolution: {integrity: sha512-0RG6biL9hW07aVrpVt2dUiXW7x1u83x/pNlQHijOCKB/uPZm6BcLXRSLVenu7qna0a4fY273rVZmHBbLXPE+Pg==}
-    dependencies:
-      '@hapi/accept': 6.0.1
-      '@sveltejs/adapter-auto': 2.0.0_@sveltejs+kit@1.10.0
-      '@sveltejs/adapter-netlify': 2.0.5_@sveltejs+kit@1.10.0
-      '@sveltejs/kit': 1.10.0_svelte@3.55.1+vite@4.1.4
-      '@sveltejs/package': 2.0.2_4x7phaipmicbaooxtnresslofa
-      '@types/send': 0.17.1
-      '@types/sharp': 0.31.1
-      is-animated: 2.0.2
-      prettier: 2.8.4
-      prettier-plugin-svelte: 2.9.0_jrsxveqmsx2uadbqiuq74wlc4u
-      send: 0.18.0
-      sharp: 0.31.3
-      svelte: 3.55.1
-      svelte-adapter-bun: 0.4.3
-      svelte-check: 3.0.4_svelte@3.55.1
-      svelte-preprocess: 5.0.1_4x7phaipmicbaooxtnresslofa
-      sveltekit-image: 0.3.64
       tslib: 2.5.0
       typescript: 4.9.5
       vite: 4.1.4
@@ -1643,44 +1597,4 @@ packages:
 
   /yallist/4.0.0:
     resolution: {integrity: sha512-3wdGidZyq5PB084XLES5TpOSRA3wjXAlIWMhum2kRcv/41Sn2emQ0dycQW4uZXLejwKvg6EsvbdlVL+FYEct7A==}
-    dev: false
-
-  github.com/moonfacedigital/sveltekit-image/b89908e3316361b39a530877c4093ed985ff26ab:
-    resolution: {tarball: https://codeload.github.com/moonfacedigital/sveltekit-image/tar.gz/b89908e3316361b39a530877c4093ed985ff26ab}
-    name: sveltekit-image
-    version: 0.4.0
-    dependencies:
-      '@hapi/accept': 6.0.1
-      '@sveltejs/adapter-auto': 2.0.0_@sveltejs+kit@1.10.0
-      '@sveltejs/adapter-netlify': 2.0.5_@sveltejs+kit@1.10.0
-      '@sveltejs/kit': 1.10.0_svelte@3.55.1+vite@4.1.4
-      '@sveltejs/package': 2.0.2_4x7phaipmicbaooxtnresslofa
-      '@types/send': 0.17.1
-      '@types/sharp': 0.31.1
-      is-animated: 2.0.2
-      prettier: 2.8.4
-      prettier-plugin-svelte: 2.9.0_jrsxveqmsx2uadbqiuq74wlc4u
-      send: 0.18.0
-      sharp: 0.31.3
-      svelte: 3.55.1
-      svelte-adapter-bun: 0.4.3
-      svelte-check: 3.0.4_svelte@3.55.1
-      svelte-preprocess: 5.0.1_4x7phaipmicbaooxtnresslofa
-      sveltekit-image: 0.3.64
-      tslib: 2.5.0
-      typescript: 4.9.5
-      vite: 4.1.4
-    transitivePeerDependencies:
-      - '@babel/core'
-      - '@types/node'
-      - coffeescript
-      - less
-      - postcss
-      - postcss-load-config
-      - pug
-      - sass
-      - stylus
-      - sugarss
-      - supports-color
-      - terser
     dev: false
