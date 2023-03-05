@@ -15,7 +15,8 @@ Forked from `rayriffy/svelte-aio` 🤍 Automatic image optimization for SvelteKi
 
 1. [Usage](#usage)
 2. [Props](#props)
-3. [Configuration](#configuration)
+3. [Preloading](#preloading)
+4. [Configuration](#configuration)
 
 ## Usage
 
@@ -84,6 +85,20 @@ Defaults to `auto`. Changes native browser `fetchpriority` attribute
 
 `important: boolean | false`
 Defaults to `false`. Sets `sync, eager, prioritize` to `true`
+
+## Preloading
+It is recommended to preload images from the api. You can do this in with `hooks.server.ts`
+```
+import type { Handle } from '@sveltejs/kit';
+
+export const handle = (async ({ event, resolve }) => {
+	const response = await resolve(event, {
+		preload: ({ path }) => path.includes('/api/_image')
+	});
+
+	return response;
+}) satisfies Handle;
+```
 
 ## Configuration
 
