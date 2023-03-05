@@ -17,15 +17,17 @@
   let klass: string | undefined = undefined
   export { klass as class }
 
+  // Progressive Enhancement. Fix sveltekit prerender without JS
+  if (!src.startsWith('https://' || 'http://')) {
+    src = $page.url.protocol + '//' + $page.url.host + '/' + src
+  }
+
   export let loader: Loader = (src, width, quality) =>
     `/api/_image?${new URLSearchParams({
       url: src,
       w: width.toString(),
       q: quality.toString(),
     }).toString()}`
-
-  // Progressive Enhancement. Fix sveltekit prerender without JS
-  export const local: string = $page.url.protocol + '//' + $page.url.host
 
   // all possible sizes from devices width to regular placeholders
   const allSizes = [
