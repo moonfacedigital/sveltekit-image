@@ -44,7 +44,7 @@ export const requestHandler =
 
     // Transform local images (fix/loading)
     if (!url.startsWith('https://' || 'http://')) {
-      url = mergedConfig.productionUrl + url
+      url = mergedConfig.productionUrl + '/' + url
     }
 
     // make sure that this url is allowed to optimize
