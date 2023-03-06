@@ -17,7 +17,7 @@ specifiers:
   svelte-adapter-bun: ^0.4.3
   svelte-check: ^3.0.4
   svelte-preprocess: ^5.0.1
-  sveltekit-image: ^0.4.4
+  sveltekit-image: ^0.4.7
   tslib: ^2.5.0
   typescript: ^4.9.5
   vite: ^4.1.4
@@ -39,7 +39,7 @@ dependencies:
   svelte-adapter-bun: 0.4.3
   svelte-check: 3.0.4_svelte@3.55.1
   svelte-preprocess: 5.0.1_4x7phaipmicbaooxtnresslofa
-  sveltekit-image: 0.4.4
+  sveltekit-image: 0.4.7
   tslib: 2.5.0
   typescript: 4.9.5
   vite: 4.1.4
@@ -1439,8 +1439,8 @@ packages:
       typescript: 4.9.5
     dev: false
 
-  /sveltekit-image/0.4.4:
-    resolution: {integrity: sha512-VdJGFz95KIeB60VVA/OpoCd87/bQhbsW15i+qU8zSgZQpbKcOZKmksQdaBFizLqFiSFGNGzmVU4h/xFTA0PEEQ==}
+  /sveltekit-image/0.4.7:
+    resolution: {integrity: sha512-O9iGllh1YMaImrZoWmFVGZ82Gj4/FIsCtc+lfuxaMQeHi/hHscK6SmrW45ltTtdGiskv/jRzNADa6IjOLyiG3Q==}
     dependencies:
       '@hapi/accept': 6.0.1
       '@sveltejs/adapter-auto': 2.0.0_@sveltejs+kit@1.10.0

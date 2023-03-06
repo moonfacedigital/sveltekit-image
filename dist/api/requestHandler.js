@@ -28,13 +28,14 @@ export const requestHandler = (config = {}) => async (event) => {
     const __dirname = dirname(fileURLToPath(import.meta.url));
     const targetCacheDirectory = path.resolve(__dirname, mergedConfig.storePath);
     // get variables
-    let url = event.url.searchParams.get('url') ?? '';
+    // Transform local images
+    let url = event.url.searchParams
+        .get('url')
+        .startsWith('https://' || 'http://')
+        ? event.url.searchParams.get('url')
+        : mergedConfig.productionUrl + '/' + event.url.searchParams.get('url');
     const width = Number(event.url.searchParams.get('w') ?? '');
     const quality = Number(event.url.searchParams.get('q') ?? '');
-    // Transform local images (fix/loading)
-    if (!url.startsWith('https://' || 'http://')) {
-        url = mergedConfig.productionUrl + '/' + url;
-    }
     // make sure that this url is allowed to optimize
     if (mergedConfig.remoteDomains !== undefined &&
         !mergedConfig.remoteDomains.includes(new URL(url).hostname)) {

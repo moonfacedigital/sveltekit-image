@@ -14,5 +14,5 @@ export interface Config {
   // enable optimization for AVIF (disabled by default due to high CPU and memory usage)
   avif: boolean
 
-  productionUrl: string
+  leadingUrl: string
 }

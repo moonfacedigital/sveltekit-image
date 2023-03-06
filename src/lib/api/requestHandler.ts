@@ -43,7 +43,7 @@ export const requestHandler =
       .get('url')
       .startsWith('https://' || 'http://')
       ? event.url.searchParams.get('url')
-      : mergedConfig.productionUrl + '/' + event.url.searchParams.get('url')
+      : mergedConfig.leadingUrl + '/' + event.url.searchParams.get('url')
     const width = Number(event.url.searchParams.get('w') ?? '')
     const quality = Number(event.url.searchParams.get('q') ?? '')
 

@@ -55,7 +55,9 @@ Then import the image component
 ```
 
 ### Local images
-> As of `0.4.1`, you can reference the path to local images just the same as a url
+Reference local images just the same as external images. Just make sure not to include a trailing slash.
+
+> ⚠️ If you are using Sveltekit's prerender, you will need to set a `leadingUrl`
 
 ## Props
 
@@ -88,10 +90,13 @@ Defaults to `false`. Sets `sync, eager, prioritize` to `true`
 
 ## Configuration
 
-Server configrations can be specified via option params. **All parameters are optional!**
+Server configrations can be specified through the `/api/_image/server.ts` endpoint.
 
 ```ts
 export const GET: RequestHandler = requestHandler({
+  leadingUrl: process.env.NODE_ENV === 'production'
+			? 'https://sveltekit-image.opensource.moonface.digital'
+			: 'http://127.0.0.1:5173',
   avif: false,
   remoteDomains: ['moonface.digital'],
   allowedDomains: ['moonface.digital'],
@@ -100,13 +105,26 @@ export const GET: RequestHandler = requestHandler({
 })
 ```
 
+### leadingUrl
+
+`string`
+
+The URL prefixed to requests of *local* images. **You need to define this if using local images**
+
+The following is a method to prefix based on node environment :
+```ts
+  leadingUrl: process.env.NODE_ENV === 'production'
+			? 'YOUR-PRODUCTION-URL'
+			: 'YOUR-LOCAL-URL',
+```
+
 ### avif
 
 `boolean`
 
 Enable AVIF image format. Defaults to `false`
 
-> **Warning:** The `.avif` format is not recommended due to its high CPU usage.. we are looking to convert all to webp instead
+> **Warning:** The `.avif` format is not recommended due to its high CPU usage
 
 ### remoteDomains
 
@@ -139,5 +157,3 @@ Values are in **milliseconds**
 `string`
 
 Directory path to cache optimized images. Defaults to `.svelte-kit/images`
-
-Provided paths will be relative to `path.join()`

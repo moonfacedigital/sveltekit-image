@@ -1,7 +1,9 @@
-import { requestHandler } from '$lib/api/requestHandler.js'
-
+import { requestHandler } from 'sveltekit-image/api'
 import type { RequestHandler } from '@sveltejs/kit'
 
 export const GET: RequestHandler = requestHandler({
-  productionUrl: 'https://fix-loading--leafy-marshmallow-d81e57.netlify.app',
+  leadingUrl:
+    process.env.NODE_ENV === 'production'
+      ? 'https://sveltekit-image.opensource.moonface.digital'
+      : 'http://127.0.0.1:5173',
 })
