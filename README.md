@@ -4,7 +4,7 @@
 
 Forked from `rayriffy/svelte-aio` 🤍 Automatic image optimization for SvelteKit.
 
-> 🚧 Library still under construction. Expect bugs and missing features :)
+> 🚧 Library still under construction. Expect bugs and missing features :) 
 
 ## Todo
 - Convert all compatible images to webp
