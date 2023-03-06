@@ -15,7 +15,8 @@ Forked from `rayriffy/svelte-aio` 🤍 Automatic image optimization for SvelteKi
 
 1. [Usage](#usage)
 2. [Props](#props)
-3. [Configuration](#configuration)
+3. [Preloading](#preloading)
+4. [Configuration](#configuration)
 
 ## Usage
 
@@ -27,46 +28,34 @@ Install dependencies
 pnpm add sveltekit-image
 ```
 
-In `routes/api/_image`, create `+server.ts` endpoint
+In `routes/api/_image`, create a `+server.ts` endpoint
 
 ```ts
-import { requestHandler } from 'sveltekit-image/api'
-
 import type { RequestHandler } from '@sveltejs/kit'
+import { requestHandler } from 'sveltekit-image/api'
 
 export const GET: RequestHandler = requestHandler()
 ```
 
-Then import image component
+Then import the image component
 
 ```svelte
-<!-- +page.ts -->
+<!-- +page.svelte -->
 <script lang="ts">
   import Image from 'sveltekit-image'
 </script>
 
 <Image
   src="your-image-url"
-  width={801}
-  height={801}
+  width={800}
+  height={600}
   alt="My lovely image"
   class="wow this even supports classnames"
 />
 ```
 
 ### Local images
-A valid `URL` must be passed to `/api/_image/`. This means relative or even absolute paths to local images will not load on their own. You must prefix the site's origin so that the api can fetch the image.
-
-```javascript
-import Image from 'sveltekit-image';
-++ import { page } from '$app/stores';
-
-<Image
-src = "{$page.url.origin}/path-to-local-image"
-alt = "My local image"
-important
-/>
-```
+> As of `0.4.1`, you can reference the path to local images just the same as a url
 
 ## Props
 
@@ -82,13 +71,16 @@ Height of your image to help reduce CLS
 `alt: string | undefined`
 Don't be an ass.. always provide an alt
 
+`quality: number | 73`
+Quality of images generated. (1-100)
+
 `sync: boolean | async`
 Defaults to `async`. Changes image decoding
 
 `eager: boolean | lazy`
 Defaults to `lazy`. Changes native browser `loading` attribute
 
-`prioritize: boolean | auto`
+`prioritize: boolean | false`
 Defaults to `auto`. Changes native browser `fetchpriority` attribute
 
 `important: boolean | false`
