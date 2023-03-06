@@ -17,7 +17,7 @@ specifiers:
   svelte-adapter-bun: ^0.4.3
   svelte-check: ^3.0.4
   svelte-preprocess: ^5.0.1
-  sveltekit-image: ^0.4.7
+  sveltekit-image: ^0.5.0
   tslib: ^2.5.0
   typescript: ^4.9.5
   vite: ^4.1.4
@@ -39,7 +39,7 @@ dependencies:
   svelte-adapter-bun: 0.4.3
   svelte-check: 3.0.4_svelte@3.55.1
   svelte-preprocess: 5.0.1_4x7phaipmicbaooxtnresslofa
-  sveltekit-image: 0.4.7
+  sveltekit-image: 0.5.0
   tslib: 2.5.0
   typescript: 4.9.5
   vite: 4.1.4
@@ -1458,6 +1458,44 @@ packages:
       svelte-adapter-bun: 0.4.3
       svelte-check: 3.0.4_svelte@3.55.1
       svelte-preprocess: 5.0.1_4x7phaipmicbaooxtnresslofa
+      tslib: 2.5.0
+      typescript: 4.9.5
+      vite: 4.1.4
+    transitivePeerDependencies:
+      - '@babel/core'
+      - '@types/node'
+      - coffeescript
+      - less
+      - postcss
+      - postcss-load-config
+      - pug
+      - sass
+      - stylus
+      - sugarss
+      - supports-color
+      - terser
+    dev: false
+
+  /sveltekit-image/0.5.0:
+    resolution: {integrity: sha512-+paCnGiJBGU5juu6j+cMuYgcjJrMJyyYG4a+hlKKUluhyNpUaEfPWIxByca+HW+BLPwvdo+GdkJIKuizenAlsA==}
+    dependencies:
+      '@hapi/accept': 6.0.1
+      '@sveltejs/adapter-auto': 2.0.0_@sveltejs+kit@1.10.0
+      '@sveltejs/adapter-netlify': 2.0.5_@sveltejs+kit@1.10.0
+      '@sveltejs/kit': 1.10.0_svelte@3.55.1+vite@4.1.4
+      '@sveltejs/package': 2.0.2_4x7phaipmicbaooxtnresslofa
+      '@types/send': 0.17.1
+      '@types/sharp': 0.31.1
+      is-animated: 2.0.2
+      prettier: 2.8.4
+      prettier-plugin-svelte: 2.9.0_jrsxveqmsx2uadbqiuq74wlc4u
+      send: 0.18.0
+      sharp: 0.31.3
+      svelte: 3.55.1
+      svelte-adapter-bun: 0.4.3
+      svelte-check: 3.0.4_svelte@3.55.1
+      svelte-preprocess: 5.0.1_4x7phaipmicbaooxtnresslofa
+      sveltekit-image: 0.4.7
       tslib: 2.5.0
       typescript: 4.9.5
       vite: 4.1.4
