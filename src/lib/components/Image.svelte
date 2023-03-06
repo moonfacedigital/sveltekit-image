@@ -17,11 +17,6 @@
   let klass: string | undefined = undefined
   export { klass as class }
 
-  // Progressive Enhancement. Fix sveltekit prerender without JS
-  if (!src.startsWith('https://' || 'http://')) {
-    src = $page.url.protocol + '//' + $page.url.host + '/' + src
-  }
-
   export let loader: Loader = (src, width, quality) =>
     `/api/_image?${new URLSearchParams({
       url: src,
@@ -62,9 +57,9 @@
       src.startsWith(protocol)
     ) && !src.startsWith($page.url.origin)
 
-  var preconnectLink: HTMLinkElement | undefined
-  var dnsLink: HTMLinkElement | undefined
-  var preloadLink: HTMLinkElement | undefined
+  var preconnectLink: HTMLLinkElement | undefined
+  var dnsLink: HTMLLinkElement | undefined
+  var preloadLink: HTMLLinkElement | undefined
 
   // Archive meta optimizations
 

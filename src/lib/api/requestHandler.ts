@@ -39,9 +39,14 @@ async event => {
   const targetCacheDirectory = path.resolve(__dirname, mergedConfig.storePath)
 
   // get variables
-  const url = event.url.searchParams.get('url') ?? ''
+  let url = event.url.searchParams.get('url') ?? ''
   const width = Number(event.url.searchParams.get('w') ?? '')
   const quality = Number(event.url.searchParams.get('q') ?? '')
+
+  // Transform local images (fix/loading)
+  if (!url.startsWith('https://' || 'http://')) {
+    url = mergedConfig.productionUrl + url
+  }
 
   // make sure that this url is allowed to optimize
   if (
