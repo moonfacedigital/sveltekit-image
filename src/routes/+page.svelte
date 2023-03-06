@@ -20,7 +20,7 @@
 
   <h2 class="text-2xl font-bold pb-4">Demo</h2>
   <Image
-    src="favicon.png"
+    src="/Triusen.png"
     width={801}
     height={801}
     alt="Tom Scott"

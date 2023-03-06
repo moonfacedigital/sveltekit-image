@@ -17,10 +17,14 @@
   let klass: string | undefined = undefined
   export { klass as class }
 
+  console.log('Page data fix/loading', $page.url)
+
   // Progressive Enhancement. Fix sveltekit prerender without JS
   if (!src.startsWith('https://' || 'http://')) {
     src = $page.url.protocol + '//' + $page.url.host + '/' + src
   }
+
+  console.log('Page data fix/loading', $page.url)
 
   export let loader: Loader = (src, width, quality) =>
     `/api/_image?${new URLSearchParams({
@@ -68,47 +72,47 @@
 
   // Archive meta optimizations
 
-  if (browser) {
-    console.log('Page origin', $page.url.origin)
+  // if (browser) {
+  //   console.log('Page origin', $page.url.origin)
 
-    const isExternalUrl =
-      ['http://', 'https://', 'ftp://'].some(protocol =>
-        src.startsWith(protocol)
-      ) && !src.startsWith($page.url.origin)
+  //   const isExternalUrl =
+  //     ['http://', 'https://', 'ftp://'].some(protocol =>
+  //       src.startsWith(protocol)
+  //     ) && !src.startsWith($page.url.origin)
 
-    const hasExistingPreconnect = document.querySelector(
-      `link[href='${new URL(src).origin}'][rel="preconnect"]`
-    )
+  //   const hasExistingPreconnect = document.querySelector(
+  //     `link[href='${new URL(src).origin}'][rel="preconnect"]`
+  //   )
 
-    const hasExistingPreload = document.querySelector(
-      `link[href='${src}'][rel="preload"]`
-    )
+  //   const hasExistingPreload = document.querySelector(
+  //     `link[href='${src}'][rel="preload"]`
+  //   )
 
-    preloadLink = document.createElement('link')
-    preloadLink.href = src
-    preloadLink.rel = 'preload'
-    preloadLink.as = 'image'
-    document.head.appendChild(preloadLink)
+  //   preloadLink = document.createElement('link')
+  //   preloadLink.href = src
+  //   preloadLink.rel = 'preload'
+  //   preloadLink.as = 'image'
+  //   document.head.appendChild(preloadLink)
 
-    dnsLink = document.createElement('link')
-    dnsLink.href = new URL(src).origin
-    dnsLink.rel = 'dns-prefetch'
-    document.head.appendChild(dnsLink)
+  //   dnsLink = document.createElement('link')
+  //   dnsLink.href = new URL(src).origin
+  //   dnsLink.rel = 'dns-prefetch'
+  //   document.head.appendChild(dnsLink)
 
-    preconnectLink = document.createElement('link')
-    preconnectLink.href = new URL(src).origin
-    preconnectLink.rel = 'preconnect'
-    preconnectLink.crossOrigin = ''
+  //   preconnectLink = document.createElement('link')
+  //   preconnectLink.href = new URL(src).origin
+  //   preconnectLink.rel = 'preconnect'
+  //   preconnectLink.crossOrigin = ''
 
-    if (important || preload) {
-      document.head.appendChild(preloadLink)
-    }
+  //   if (important || preload) {
+  //     document.head.appendChild(preloadLink)
+  //   }
 
-    if (isExternalUrl) {
-      document.head.appendChild(dnsLink)
-      document.head.appendChild(preconnectLink)
-    }
-  }
+  //   if (isExternalUrl) {
+  //     document.head.appendChild(dnsLink)
+  //     document.head.appendChild(preconnectLink)
+  //   }
+  // }
 </script>
 
 <!-- svelte-ignore a11y-missing-attribute -->
@@ -122,7 +126,7 @@
     alt,
     height,
     width,
-    class: klass,
+    class: 'sveltekit-image ' + klass,
   }}
   fetchpriority={prioritize || important ? 'high' : 'auto'}
 />
