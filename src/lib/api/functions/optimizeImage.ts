@@ -4,7 +4,7 @@ import { AVIF, JPEG, PNG, WEBP } from '$lib/api/constants/mimeTypes.js'
 
 export const optimizeImage = async (
   buffer: Buffer,
-  contentType: string
+  contentType: string,
   quality: number,
   width: number,
   height?: number
