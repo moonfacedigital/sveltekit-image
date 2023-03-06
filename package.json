@@ -33,7 +33,7 @@
     "lint": "prettier --plugin-search-dir . --check .",
     "format": "prettier --plugin-search-dir . --write .",
     "build:web": "vite build",
-    "pub": "pnpm build && pnpm version patch --force && pnpm publish --no-git-checks"
+    "pub": "pnpm version patch --force && pnpm build && pnpm publish --no-git-checks"
   },
   "type": "module",
   "dependencies": {

@@ -4,5 +4,5 @@ export interface Config {
     storePath: string;
     ttl: number;
     avif: boolean;
-    productionUrl: string;
+    leadingUrl: string;
 }
