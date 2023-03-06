@@ -1,4 +1,4 @@
-import { requestHandler } from '$lib/api'
+import { requestHandler } from '$lib/api/requestHandler.js'
 
 import type { RequestHandler } from '@sveltejs/kit'
 
