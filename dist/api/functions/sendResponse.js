@@ -8,7 +8,7 @@ export const sendResponse = (payload, cacheHit, extraHeaders = {}) => new Respon
         'Content-Security-Policy': "script-src 'none'; frame-src 'none'; sandbox;",
         'Strict-Transport-Security': 'max-age=31536000; includeSubDomains; preload',
         ETag: payload.etag,
-        'X-SvelteAIO-Cache': cacheHit,
+        'X-SveltekitImage-Cache': cacheHit,
         ...extraHeaders,
     },
 });

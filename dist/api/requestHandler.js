@@ -1,7 +1,8 @@
 import { URL } from 'url';
 import path from 'path';
 import isAnimated from 'is-animated';
-import { error } from '@sveltejs/kit';
+import { error, json } from '@sveltejs/kit';
+import sharp from 'sharp';
 import { defaultConfig } from './constants/defaultConfig.js';
 import { AVIF, JPEG, WEBP } from './constants/mimeTypes.js';
 import { detectContentType } from './functions/detectContentType.js';
@@ -81,7 +82,7 @@ export const requestHandler = (config = {}) => async (event) => {
                 maxAge: 0,
                 etag: getHash([upstreamBuffer]),
             }, 'MISS', {
-                'X-SvelteAIO-Optimization': 'animate-ignore',
+                'X-SveltekitImage-Optimization': 'animate-ignore',
             });
         }
         // get content type
@@ -120,7 +121,7 @@ export const requestHandler = (config = {}) => async (event) => {
             //   maxAge: 0,
             //   etag: getHash([upstreamBuffer])
             // }, 'MISS', {
-            //   'X-SvelteAIO-Optimization': 'failure'
+            //   'X-SveltekitImage-Optimization': 'failure'
             // })
         }
     }
