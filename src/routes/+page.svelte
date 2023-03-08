@@ -33,6 +33,7 @@
       height={800}
       alt="A random picture of the ocean"
       class="shadow-sm"
+      important
     />
   </div>
 </main>
