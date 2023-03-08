@@ -51,6 +51,7 @@
     .map((o, i) => `${loader(src, o, quality)} ${i + 1}x`)
     .join(', ')
   const builtSrc = loader(src, widths[widths.length - 1], quality)
+
   // Detect if image comes from url and preconnect
   const isExternalUrl = () =>
     ['http://', 'https://', 'ftp://'].some(protocol =>
@@ -120,4 +121,5 @@
     class: 'sveltekit-image ' + klass,
   }}
   fetchpriority={prioritize || important ? 'high' : 'auto'}
+  style="background-image: url(/api/_image?url={src}&w=1&q=1); outline: transparent !important;"
 />

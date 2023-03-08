@@ -1,7 +1,8 @@
 import { URL } from 'url'
 import path from 'path'
 import isAnimated from 'is-animated'
-import { error } from '@sveltejs/kit'
+import { error, json } from '@sveltejs/kit'
+import sharp from 'sharp'
 
 import { defaultConfig } from '$lib/api/constants/defaultConfig.js'
 import { AVIF, JPEG, WEBP } from '$lib/api/constants/mimeTypes.js'
@@ -114,7 +115,7 @@ export const requestHandler =
           },
           'MISS',
           {
-            'X-SvelteAIO-Optimization': 'animate-ignore',
+            'X-SveltekitImage-Optimization': 'animate-ignore',
           }
         )
       }
@@ -170,7 +171,7 @@ export const requestHandler =
         //   maxAge: 0,
         //   etag: getHash([upstreamBuffer])
         // }, 'MISS', {
-        //   'X-SvelteAIO-Optimization': 'failure'
+        //   'X-SveltekitImage-Optimization': 'failure'
         // })
       }
     } catch (e) {

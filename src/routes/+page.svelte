@@ -1,8 +1,8 @@
 <script lang="ts">
-  import Image from 'sveltekit-image'
+  import Image from '$lib/components/Image.svelte'
 </script>
 
-<main class="max-w-xl mx-auto m-4 py-4">
+<main class="max-w-xl mx-auto m-4 py-4 px-4 md:px-0">
   <section class="">
     <h1 class="text-gray-900 font-bold text-3xl">Sveltekit Image</h1>
     <p class="text-gray-700">Automatic image optimization for SvelteKit.</p>
@@ -18,20 +18,27 @@
   </section>
 
   <h2 class="text-2xl font-bold pb-4">Demo</h2>
-  <Image
-    src="Triusen.png"
-    width={800}
-    height={800}
-    alt="Tom Scott"
-    class="rounded-xl shadow-md"
-    important
-  />
-  <Image
-    src="https://source.unsplash.com/random/800×800/?ocean"
-    width={800}
-    height={800}
-    alt="A random picture of the ocean"
-    class="rounded-xl shadow-md"
-    important
-  />
+  <div class="flex flex-col gap-y-8">
+    <Image
+      src="Triusen.png"
+      width={800}
+      height={600}
+      alt="Triusen web concept"
+      class="shadow-sm"
+      important
+    />
+    <Image
+      src="https://source.unsplash.com/random/800×800/?ocean"
+      width={800}
+      height={800}
+      alt="A random picture of the ocean"
+      class="shadow-sm"
+    />
+  </div>
 </main>
+
+<style global>
+  @tailwind base;
+  @tailwind components;
+  @tailwind utilities;
+</style>

@@ -19,7 +19,7 @@ export const sendResponse = (
       'Strict-Transport-Security':
         'max-age=31536000; includeSubDomains; preload',
       ETag: payload.etag,
-      'X-SvelteAIO-Cache': cacheHit,
+      'X-SveltekitImage-Cache': cacheHit,
       ...extraHeaders,
     },
   })

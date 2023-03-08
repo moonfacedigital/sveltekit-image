@@ -1,4 +1,6 @@
 import sveltePreprocess from 'svelte-preprocess'
+import tailwind from 'tailwindcss'
+import autoprefixer from 'autoprefixer'
 
 import autoAdapter from '@sveltejs/adapter-auto'
 import adapter from '@sveltejs/adapter-netlify'
@@ -17,6 +19,9 @@ const config = {
   // for more information about preprocessors
   preprocess: sveltePreprocess({
     replace: [['$app', '$app']],
+    postcss: {
+      plugins: [tailwind, autoprefixer],
+    },
   }),
   kit: {
     adapter:
