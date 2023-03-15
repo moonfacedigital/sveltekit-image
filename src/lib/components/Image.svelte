@@ -121,5 +121,4 @@
     class: 'sveltekit-image ' + klass,
   }}
   fetchpriority={prioritize || important ? 'high' : 'auto'}
-  style="background-image: url(/api/_image?url={src}&w=1&q=1); outline: transparent !important;"
 />
