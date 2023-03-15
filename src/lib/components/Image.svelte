@@ -122,3 +122,9 @@
   }}
   fetchpriority={prioritize || important ? 'high' : 'auto'}
 />
+
+<style>
+  .sveltekit-image {
+    color: transparent !important;
+  }
+</style>

@@ -3,13 +3,14 @@
   "compilerOptions": {
     "allowJs": true,
     "checkJs": true,
-    "moduleResolution": "NodeNext",
+    "declaration": true,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "resolveJsonModule": true,
     "skipLibCheck": true,
     "sourceMap": true,
-    "strict": true
+    "strict": true,
+    "ignoreDeprecations": "5.0"
   }
   // Path aliases are handled by https://kit.svelte.dev/docs/configuration#alias
   //
