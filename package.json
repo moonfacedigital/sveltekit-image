@@ -1,6 +1,6 @@
 {
   "name": "sveltekit-image",
-  "version": "0.5.2",
+  "version": "0.5.3",
   "author": {
     "name": "Moonface Digital",
     "email": "dev@moonface.digital",
@@ -16,7 +16,7 @@
   ],
   "exports": {
     ".": {
-      "types": "./dist/index.d.ts",
+      "types": "./dist/components/Image.svelte.d.ts",
       "svelte": "./dist/index.js"
     },
     "./api": {
