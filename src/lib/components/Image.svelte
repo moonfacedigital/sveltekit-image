@@ -48,7 +48,7 @@
   ]
 
   const builtSrcset = widths
-    .map((o, i) => `${loader(src, o, quality)} ${i + 1}x`)
+    .map((o, i) => `${loader(src, o, quality)} ${o}w`)
     .join(', ')
   const builtSrc = loader(src, widths[widths.length - 1], quality)
 
@@ -127,4 +127,6 @@
   .sveltekit-image {
     color: transparent !important;
   }
+  /* Fix known safari bug showing grey outline while images load */
+  @supports (font: -apple-system-body) and (-webkit-appearance: none) { .sveltekit-image[loading="lazy"] { clip-path: inset(0.6px) } }
 </style>
