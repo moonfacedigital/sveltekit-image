@@ -48,7 +48,7 @@
   ]
 
   const builtSrcset = widths
-    .map((o, i) => `${loader(src, o, quality)} ${o}w`)
+    .map((o, i) => `${loader(src, o, quality)} ${i + 1}x`)
     .join(', ')
   const builtSrc = loader(src, widths[widths.length - 1], quality)
 
