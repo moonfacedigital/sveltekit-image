@@ -88,6 +88,9 @@ Defaults to `auto`. Changes native browser `fetchpriority` attribute
 `important: boolean | false`
 Defaults to `false`. Sets `sync, eager, prioritize` to `true`
 
+`clip: boolean | true`
+Defaults to `true`. Fixes grey outline on lazy images in webkit
+
 ## Configuration
 
 Server configrations can be specified through the `/api/_image/server.ts` endpoint.

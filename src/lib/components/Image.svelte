@@ -14,6 +14,7 @@
   export let important: boolean | undefined = false
   export let preload: boolean | undefined = false
   export let quality: number = 73
+  export let clip: boolean = true
   let klass: string | undefined = undefined
   export { klass as class }
 
@@ -118,15 +119,15 @@
     alt,
     height,
     width,
-    class: 'sveltekit-image ' + klass,
+    class: clip ?  'sveltekit-image ski-clip_allowed ' + klass  : "sveltekit-image " + klass,
   }}
   fetchpriority={prioritize || important ? 'high' : 'auto'}
 />
 
-<style>
+<style global>
   .sveltekit-image {
     color: transparent !important;
   }
   /* Fix known safari bug showing grey outline while images load */
-  @supports (font: -apple-system-body) and (-webkit-appearance: none) { .sveltekit-image[loading="lazy"] { clip-path: inset(0.6px) } }
+   .sveltekit-image.ski-clip_allowed[loading="lazy"] { clip-path: inset(0.6px) } 
 </style>
