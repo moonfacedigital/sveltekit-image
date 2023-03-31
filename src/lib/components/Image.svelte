@@ -129,5 +129,5 @@
     color: transparent !important;
   }
   /* Fix known safari bug showing grey outline while images load */
-   .sveltekit-image.ski-clip_allowed[loading="lazy"] { clip-path: inset(0.6px) } 
+  @supports (font: -apple-system-body) and (-webkit-appearance: none){.sveltekit-image.ski-clip_allowed[loading="lazy"] { clip-path: inset(0.6px) }} 
 </style>
