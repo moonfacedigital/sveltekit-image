@@ -116,7 +116,7 @@
   decoding={sync || important ? 'sync' : 'async'}
   loading={eager || important ? 'eager' : 'lazy'}
   sizes="(min-width: 1024px) 800px, (min-width: 768px) 80vw, 100vw"
-  style={fill ? style + 'width:100%; height: auto;' : style}
+  style={fill ? `${style} + width: 100%; height: auto;` : style}
   {...{
     height,
     width,
