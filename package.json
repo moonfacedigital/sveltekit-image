@@ -33,6 +33,12 @@
       ]
     }
   },
+  "type": "module",
+  "svelte": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "dev": "vite dev",
     "start": "vite dev",
@@ -44,7 +50,6 @@
     "build:web": "vite build",
     "pub": "pnpm version patch --force && pnpm build && pnpm publish --no-git-checks"
   },
-  "type": "module",
   "dependencies": {
     "@hapi/accept": "^6.0.1",
     "@sveltejs/adapter-auto": "^2.0.0",
