@@ -1,5 +1,5 @@
 <script lang="ts">
-  import Image from 'sveltekit-image'
+  import Image from '../../dist'
 </script>
 
 <main class="max-w-xl mx-auto m-4 py-4 px-4 md:px-0">

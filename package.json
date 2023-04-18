@@ -12,7 +12,7 @@
     "url": "git+https://github.com/moonfacedigital/sveltekit-image.git"
   },
   "files": [
-    "dist"
+    "dist/**/*"
   ],
   "exports": {
     ".": {
@@ -20,18 +20,18 @@
       "svelte": "./dist/index.js"
     },
     "./api": {
-      "types": "./dist/api/index.d.ts",
+      "types": "./dist/api/requestHandler.d.ts",
       "svelte": "./dist/api/requestHandler.js"
     }
   },
   "types": "./dist/index.d.ts",
   "typesVersions": {
     "<4.0": {
-      "index": [
+      ".": [
         "./dist/index.d.ts"
       ],
       "api": [
-        "./dist/api/index.d.ts"
+        "./dist/api/requestHandler.d.ts"
       ]
     }
   },
