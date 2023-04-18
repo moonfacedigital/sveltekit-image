@@ -11,9 +11,6 @@
     "type": "git",
     "url": "git+https://github.com/moonfacedigital/sveltekit-image.git"
   },
-  "files": [
-    "dist"
-  ],
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
