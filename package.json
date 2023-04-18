@@ -1,6 +1,6 @@
 {
   "name": "sveltekit-image",
-  "version": "0.5.10",
+  "version": "0.5.11-fix",
   "author": {
     "name": "Moonface Digital",
     "email": "dev@moonface.digital",
@@ -14,11 +14,13 @@
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
-      "svelte": "./dist/index.js"
+      "svelte": "./dist/index.js",
+      "default": "./dist/index.js"
     },
     "./api": {
       "types": "./dist/api/index.d.ts",
-      "svelte": "./dist/api/requestHandler.js"
+      "svelte": "./dist/api/requestHandler.js",
+      "default": "./dist/api/requestHandler.js"
     }
   },
   "typesVersions": {
