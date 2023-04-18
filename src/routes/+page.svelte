@@ -20,9 +20,16 @@
   <h2 class="text-2xl font-bold pb-4">Demo</h2>
   <div class="flex flex-col gap-y-8">
     <Image
+    src="Arlo-works.png"
+    fill
+    alt="Arlo works concept"
+    width={500}
+    class="shadow-sm"
+    important
+  />
+    <Image
       src="Triusen.png"
       width={800}
-      height={600}
       alt="Triusen web concept"
       class="shadow-sm"
       important
@@ -30,7 +37,6 @@
     <Image
       src="https://source.unsplash.com/random/800×800/?ocean"
       width={800}
-      height={800}
       alt="A random picture of the ocean"
       class="shadow-sm"
       important

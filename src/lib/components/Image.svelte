@@ -10,11 +10,13 @@
   export let alt: string | undefined = undefined
   export let sync: boolean | undefined = undefined
   export let eager: boolean | undefined = undefined
-  export let prioritize: boolean | undefined = false
+  export let priority: boolean | undefined = false
   export let important: boolean | undefined = false
   export let preload: boolean | undefined = false
   export let quality: number = 73
   export let clip: boolean = true
+  export let fill: boolean = false
+  export let style: string | undefined = undefined
   let klass: string | undefined = undefined
   export { klass as class }
 
@@ -30,7 +32,6 @@
     16, 32, 48, 64, 96, 128, 256, 384, 640, 750, 828, 1080, 1200, 1920, 2048,
     3840,
   ]
-
   // generate all widths to be used for optimizations
   const widths = [
     ...new Set(
@@ -47,21 +48,19 @@
       )
     ),
   ]
-
   const builtSrcset = widths
-    .map((o, i) => `${loader(src, o, quality)} ${i + 1}x`)
+    .map((o, i) => `${loader(src, o, quality)} ${o}w`)
     .join(', ')
   const builtSrc = loader(src, widths[widths.length - 1], quality)
 
-  // Detect if image comes from url and preconnect
-  const isExternalUrl = () =>
-    ['http://', 'https://', 'ftp://'].some(protocol =>
-      src.startsWith(protocol)
-    ) && !src.startsWith($page.url.origin)
-
-  var preconnectLink: HTMLLinkElement | undefined
-  var dnsLink: HTMLLinkElement | undefined
-  var preloadLink: HTMLLinkElement | undefined
+  // // Detect if image comes from url and preconnect
+  // const isExternalUrl = () =>
+  //   ['http://', 'https://', 'ftp://'].some(protocol =>
+  //     src.startsWith(protocol)
+  //   ) && !src.startsWith($page.url.origin)
+  // var preconnectLink: HTMLLinkElement | undefined
+  // var dnsLink: HTMLLinkElement | undefined
+  // var preloadLink: HTMLLinkElement | undefined
 
   // Archive meta optimizations
 
@@ -110,24 +109,36 @@
 
 <!-- svelte-ignore a11y-missing-attribute -->
 <img
+  sveltekit-image
+  class={clip ? 'ski-clip_allowed ' + klass : '' + klass}
   src={builtSrc}
   srcset={builtSrcset}
   decoding={sync || important ? 'sync' : 'async'}
   loading={eager || important ? 'eager' : 'lazy'}
   sizes="(min-width: 1024px) 800px, (min-width: 768px) 80vw, 100vw"
+  style={fill ? style + 'width:100%; height: auto;' : style}
   {...{
-    alt,
     height,
     width,
-    class: clip ?  'sveltekit-image ski-clip_allowed ' + klass  : "sveltekit-image " + klass,
+    alt,  
   }}
-  fetchpriority={prioritize || important ? 'high' : 'auto'}
+  fetchpriority={priority || important ? 'high' : 'auto'}
 />
 
 <style global>
-  .sveltekit-image {
+  [sveltekit-image] {
     color: transparent !important;
   }
   /* Fix known safari bug showing grey outline while images load */
-  @supports (font: -apple-system-body) and (-webkit-appearance: none){.sveltekit-image.ski-clip_allowed[loading="lazy"] { clip-path: inset(0.6px) }} 
+  @supports (font: -apple-system-body) and (-webkit-appearance: none) {
+    [sveltekit-image].ski-clip_allowed[loading='lazy'] {
+      clip-path: inset(0px);
+      animation: webkit-clip 1s forwards;
+    }
+  }
+  @keyframes {
+    to {
+      clip-path: inset(0.6px);
+    }
+  }
 </style>
